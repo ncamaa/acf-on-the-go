@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: ACF On The Go
- * Plugin URI: https://www.linkedin.com/in/nadav-cohen-wd/
+ * Plugin URI: https://github.com/ncamaa/acf-on-the-go/edit/master/README.md
  * Description: Edit ACF text fields from the front end of your website
  * Version: 1.0
  * Author: Nadav Cohen (amaa)
