@@ -15,10 +15,10 @@
 
 ACF On The Go
 
-Edit your ACF text fields from the front-end of your website.
-Save time looking for the field in WP-Admin.
-See immediate results in the front-end.
-Developer & User friendly.
+- Edit your ACF text fields from the front-end of your website.
+- Save time looking for the field in WP-Admin.
+- See immediate results in the front-end.
+- Developer & User friendly.
 
 ## Installation ##
 ### Developer: ###
