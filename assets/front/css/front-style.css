@@ -1,0 +1,48 @@
+.acfg-dialog-box .ui-dialog-buttonset{
+    float: none !important;
+}
+
+.acfg-dialog-box{
+    position: fixed !important;
+    top: 10% !important;
+}
+
+
+.acfg-dialog-box .acfg-update-btn{
+    float: left;
+    margin-left: 0px !important;
+    color: #ffffff;
+    border-color: #0274be;
+    background-color: #0274be;
+    padding: 6px 30px 30px 30px;
+
+}
+
+.acfg-dialog-box .acfg-update-btn:hover, .acfg-dialog-box .acfg-update-btn:focus{
+    float: left;
+    margin-left: 0px !important;
+    color: #ffffff;
+    border-color: #0274be;
+    background-color: #0274be;
+    padding: 6px 30px 30px 30px;
+
+}
+
+.acfg-dialog-box .acfg-close-btn{
+    float: right;
+    padding: 6px 30px 30px 30px;
+}
+
+.acf-onthego-content-wrapper{
+    position: relative;
+}
+
+.acf-onthego-content-wrapper .acfg-editor{
+    position: absolute;
+    right: -15px;
+}
+
+.acf-onthego-content-wrapper .acfg-editor img{
+    height: 12px;
+    width: 12px;
+}
