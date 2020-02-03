@@ -128,8 +128,6 @@ if (!class_exists('ACFG_Front_Loader')) {
             if (is_user_logged_in() && !is_admin() && current_user_can('edit_posts')) {
                 add_filter('acf/load_value/type=text',  array($this, 'acfg_selector'), 10, 3);
                 add_filter('acf/load_value/type=textarea', array($this, 'acfg_textarea_selector'), 10, 3);
-                // add_filter('acf/format_value/type=text', array($this, 'acfg_format_value'), 10, 3);
-                // add_filter('acf/format_value/type=textarea', array($this, 'acfg_format_value'), 10, 3);
             }
         }
 
@@ -146,7 +144,7 @@ if (!class_exists('ACFG_Front_Loader')) {
 
                 if (is_user_logged_in()) {
 
-                    $textArr  = $_REQUEST['textArr'];
+                    $textArr  = sanitize_text_field($_REQUEST['textArr']);
 
                     foreach ($textArr as $arr) {
                         $field_key  = $arr[0];
@@ -159,14 +157,14 @@ if (!class_exists('ACFG_Front_Loader')) {
                     $updated_data = update_field($field_name, $field_content, $current_postid);
 
                     if ($old_field_value == $field_content) {
-                        $error_string1 = 'Nothing to change';
+                        $error_string1 = _e('Nothing to change', ACFG_TEXTDOMAIN);
                         $result =  array(
                             'status' => 'no-changes',
                             'message' => $error_string1,
                         );
                         // exit;
                     } else {
-                        $error_string2 = 'Updated Successfully';
+                        $error_string2 = _e('Updated Successfully', ACFG_TEXTDOMAIN);
                         $result = array(
                             'status' => 'success',
                             'message' => $error_string2,
