@@ -5,7 +5,7 @@
  * Description: Edit ACF text fields from the front end of your website
  * Version: 1.0
  * Author: Nadav Cohen (amaa)
- * Developer: miyanialkesh7
+ * Developer: Alkesh Miyani
  * Author URI: https://www.linkedin.com/in/nadav-cohen-wd/
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
