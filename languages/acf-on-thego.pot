@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Blocks Kit\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/blocks-"
 "kit\n"
-"POT-Creation-Date: 2019-12-25 11:06+0530\n"
+"POT-Creation-Date: 2020-02-03 16:14+0530\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Blocks Kit\n"
 "Language-Team: Blocks Kit <info@blockskit.com>\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -25,30 +25,38 @@ msgstr ""
 "Language: en_US\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: acf-on-thego.php:107 acf-on-thego.php:111 acf-on-thego.php:122
+#: acf-on-thego.php:102 acf-on-thego.php:106 acf-on-thego.php:117
 msgid "ACF on the Go"
 msgstr ""
 
-#: acf-on-thego.php:107 acf-on-thego.php:111
+#: acf-on-thego.php:102 acf-on-thego.php:106
 msgid ""
 " Plguin not working because you need to activate the "
 "<strong>Advanced Custom Fields</strong> plugin."
 msgstr ""
 
-#: acf-on-thego.php:108
+#: acf-on-thego.php:103
 msgid "Activate ACF Pro Now"
 msgstr ""
 
-#: acf-on-thego.php:112
+#: acf-on-thego.php:107
 msgid "Activate ACF Now"
 msgstr ""
 
-#: acf-on-thego.php:122
+#: acf-on-thego.php:117
 msgid ""
 " Plguin not working because you need to install the "
 "<strong>Advanced Custom Fields</strong> plugin"
 msgstr ""
 
-#: acf-on-thego.php:123
+#: acf-on-thego.php:118
 msgid "Install ACF Now"
+msgstr ""
+
+#: includes/acfg-front-loader.php:162
+msgid "Nothing to change"
+msgstr ""
+
+#: includes/acfg-front-loader.php:169
+msgid "Updated Successfully"
 msgstr ""
