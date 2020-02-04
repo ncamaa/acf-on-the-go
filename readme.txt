@@ -37,5 +37,30 @@ User:
 - Enter new content, click 'Update'.
 - That's it! The new content is now set and is updated also in the DB.
 
-= 1.0 =
+== Frequently Asked Questions ==
+
+= I have installed and activated the plugin, but I still can't see any changes on the frontend, why is that? =
+Please make sure to put 'acfgo' in the target field's class. You can do so by going to the field's field-group page, then in the field attributes go to 'Wrapper Attributes -> class', type 'acfgo' and click 'update'.
+
+= What kind of ACF fields are supported? =
+Right now the plugin works only for non-repeater text fields. We're working on adding functionality to more kinds of fields. 
+
+== Screenshots ==
+1. Text field example
+2.  In the field attributes go to 'Wrapper Attributes -> class', type 'acfgo' and click 'update'.
+3. Insert your text field's code like you do normally, no changes here.
+4. In the 'Edit Page', insert any value for your text field.
+5. Click the pencil edit icon near your field's frontend content.
+6. Review the existing content.
+7. Insert new content and click 'Update'.
+8 Woohoo! The new content now appears in the frontend and was also saved to the database. 
+9. Review the new content on the 'Edit Page'.
+
+== 1.0 ==
 Release Date: 31.01.2020
+
+== Changelog ==
+Nothing here yet.
+
+== Upgrade Notice ==
+Nothing here yet.
