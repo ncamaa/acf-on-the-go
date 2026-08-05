@@ -3,21 +3,25 @@ Author URI: https://www.linkedin.com/in/nadav-cohen-wd/
 Donate link: https://www.paypal.me/NadavC
 Plugin URI: https://github.com/ncamaa/acf-on-the-go/edit/master/README.md
 Contributors: amaa, alkesh7
-Tags: ACF, advanced custom fields, acf front
+Tags: ACF, advanced custom fields, acf front, front-end editing, inline editing
 Requires at least: 4.8
-Tested up to: 5.3.2
+Tested up to: 7.0.2
 Requires PHP: 5.6
-Stable tag: 1.0 beta
-License: GPL2+
+Stable tag: 1.0.2
+License: GPL-2.0-or-later
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+
+Edit Advanced Custom Fields (ACF) text and textarea values directly from the front end of your site, with changes saved instantly to the database.
 
 == Description ==
 
-ACF On The Go
+ACF On-The-Go lets site editors update Advanced Custom Fields (ACF) text and textarea field values right on the page where they appear, without opening WP-Admin.
 
 - Edit your ACF text fields from the front-end of your website.
 - Save time looking for the field in WP-Admin.
 - See immediate results in the front-end.
+- Changes are written straight to the database, so nothing is lost between the front-end edit and the admin view.
+- Access is limited to logged-in users who can already edit the post being viewed.
 - Developer & User friendly.
 
 == IMPORTANT ==
@@ -47,20 +51,38 @@ Right now the plugin works only for non-repeater text fields. We're working on a
 
 == Screenshots ==
 1. Text field example
-2.  In the field attributes go to 'Wrapper Attributes -> class', type 'acfgo' and click 'update'.
+2. In the field attributes go to 'Wrapper Attributes -> class', type 'acfgo' and click 'update'.
 3. Insert your text field's code like you do normally, no changes here.
 4. In the 'Edit Page', insert any value for your text field.
 5. Click the pencil edit icon near your field's frontend content.
 6. Review the existing content.
 7. Insert new content and click 'Update'.
-8 Woohoo! The new content now appears in the frontend and was also saved to the database. 
+8. Woohoo! The new content now appears in the frontend and was also saved to the database. 
 9. Review the new content on the 'Edit Page'.
 
-== 1.0 ==
-Release Date: 31.01.2020
-
 == Changelog ==
-Nothing here yet.
+
+= 1.0.2 =
+Release date: August 5th, 2026
+
+* Security: full plugin audit confirmed the AJAX save handler is the only endpoint that accepts input, and it enforces both nonce verification and a per-post capability check.
+* Version bump for WordPress.org relisting following the security review.
+* Security: added nonce verification and per-post capability checks to the front-end save request.
+* Security: escaped all dynamic front-end output to prevent stored XSS.
+* Tested up to WordPress 7.0.2
+* Fixed a text domain mismatch that prevented translations from loading correctly.
+* Removed the manual textdomain loading call in favor of WordPress.org's automatic translation loading.
+* Localized the front-end dialog's "Update" and "Close" button labels, which were previously hardcoded in English.
+* Fixed a front-end JavaScript error that prevented the save dialog from closing and the success/no-change notice from appearing after a save (the response was parsed twice).
+* Added support for Secure Custom Fields, the actively maintained successor to Advanced Custom Fields, as a recognized dependency.
+* General code cleanup and WordPress Coding Standards fixes.
+
+= 1.0 =
+Release date: January 31st, 2020
+
+* Initial release.
 
 == Upgrade Notice ==
-Nothing here yet.
+
+= 1.0.2 =
+Includes important security fixes for the front-end save request. Updating is strongly recommended.
