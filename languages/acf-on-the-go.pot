@@ -1,85 +1,105 @@
 # Copyright (C) 2026 Nadav Cohen (amaa)
-# This file is distributed under the GPL2+.
+# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: ACF On The Go 1.0.2\n"
+"Project-Id-Version: ACF On The Go 1.0.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/acf-on-the-go\n"
-"POT-Creation-Date: 2026-08-05 00:00+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: manual\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Textdomain-Support: yes\n"
-"Language: en_US\n"
+"POT-Creation-Date: 2026-08-21T11:38:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: acf-on-the-go\n"
 
-#: acf-on-the-go.php:94
+#. Plugin Name of the plugin
+#: acf-on-the-go.php
+msgid "ACF On The Go"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: acf-on-the-go.php
+msgid "https://github.com/ncamaa/acf-on-the-go/edit/master/README.md"
+msgstr ""
+
+#. Description of the plugin
+#: acf-on-the-go.php
+msgid "Edit ACF text fields from the front end of your website"
+msgstr ""
+
+#. Author of the plugin
+#: acf-on-the-go.php
+msgid "Nadav Cohen (amaa)"
+msgstr ""
+
+#. Author URI of the plugin
+#: acf-on-the-go.php
+msgid "https://www.linkedin.com/in/nadav-cohen-wd/"
+msgstr ""
+
+#: acf-on-the-go.php:95
 msgid "Activate ACF Pro Now"
 msgstr ""
 
-#: acf-on-the-go.php:97
+#: acf-on-the-go.php:98
 msgid "Activate ACF Now"
 msgstr ""
 
-#: acf-on-the-go.php:100
+#: acf-on-the-go.php:101
 msgid "Activate Secure Custom Fields Now"
 msgstr ""
 
-#: acf-on-the-go.php:104 acf-on-the-go.php:113
+#: acf-on-the-go.php:105
+#: acf-on-the-go.php:114
 msgid "ACF on the Go"
 msgstr ""
 
-#: acf-on-the-go.php:104
-msgid ""
-" Plugin not working because you need to activate the <strong>Advanced "
-"Custom Fields</strong> or <strong>Secure Custom Fields</strong> plugin."
-msgstr ""
-
-#: acf-on-the-go.php:113
-msgid ""
-" Plugin not working because you need to install the <strong>Advanced "
-"Custom Fields</strong> or <strong>Secure Custom Fields</strong> plugin"
+#: acf-on-the-go.php:105
+msgid " Plugin not working because you need to activate the <strong>Advanced Custom Fields</strong> or <strong>Secure Custom Fields</strong> plugin."
 msgstr ""
 
 #: acf-on-the-go.php:114
+msgid " Plugin not working because you need to install the <strong>Advanced Custom Fields</strong> or <strong>Secure Custom Fields</strong> plugin"
+msgstr ""
+
+#: acf-on-the-go.php:115
 msgid "Install Secure Custom Fields Now"
 msgstr ""
 
-#: acf-on-the-go.php:161
+#: acf-on-the-go.php:162
 msgid "Success"
 msgstr ""
 
-#: acf-on-the-go.php:162
+#: acf-on-the-go.php:163
 msgid "No change"
 msgstr ""
 
-#: acf-on-the-go.php:163
+#: acf-on-the-go.php:164
 msgid "Updated Successfully"
 msgstr ""
 
-#: acf-on-the-go.php:164
+#: acf-on-the-go.php:165
 msgid "Nothing to change"
 msgstr ""
 
-#: acf-on-the-go.php:165
+#: acf-on-the-go.php:166
 msgid "Update"
 msgstr ""
 
-#: acf-on-the-go.php:166
+#: acf-on-the-go.php:167
 msgid "Close"
 msgstr ""
 
-#: includes/acfg-front-loader.php:148
+#: includes/class-acfg-front-loader.php:149
 msgid "You must be logged in to do that."
 msgstr ""
 
-#: includes/acfg-front-loader.php:152
+#: includes/class-acfg-front-loader.php:153
 msgid "Invalid request."
 msgstr ""
 
-#: includes/acfg-front-loader.php:163
+#: includes/class-acfg-front-loader.php:164
 msgid "You are not allowed to edit this field."
 msgstr ""

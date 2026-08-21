@@ -3,7 +3,7 @@
  * Plugin Name: ACF On The Go
  * Plugin URI: https://github.com/ncamaa/acf-on-the-go/edit/master/README.md
  * Description: Edit ACF text fields from the front end of your website
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Nadav Cohen (amaa)
  * Developer: Alkesh Miyani
  * Author URI: https://www.linkedin.com/in/nadav-cohen-wd/
@@ -30,6 +30,7 @@ define( 'ACFG_FILE', __FILE__ );
 define( 'ACFG_DIR', plugin_dir_path( ACFG_FILE ) );
 define( 'ACFG_URL', plugins_url( '/', ACFG_FILE ) );
 define( 'ACFG_BASENAME', plugin_basename( __FILE__ ) );
+define( 'ACFG_VERSION', '1.0.3' );
 
 if ( ! class_exists( 'ACFG_Init' ) ) {
 
@@ -134,7 +135,7 @@ if ( ! class_exists( 'ACFG_Init' ) ) {
 			$checkplugin_scf = is_plugin_active( 'secure-custom-fields/secure-custom-fields.php' );
 
 			if ( true === $checkplugin || true === $checkplugin_pro || true === $checkplugin_scf ) {
-				include_once ACFG_DIR . 'includes/acfg-front-loader.php';
+				include_once ACFG_DIR . 'includes/class-acfg-front-loader.php';
 			}
 		}
 
@@ -143,12 +144,12 @@ if ( ! class_exists( 'ACFG_Init' ) ) {
 		 */
 		public function acfg_front_scripts() {
 			if ( is_user_logged_in() ) {
-				wp_enqueue_style( 'jquery-ui', ACFG_URL . 'assets/front/css/jquery-ui-dialog.min.css', array(), '1.0.1' );
-				wp_enqueue_style( 'acfg-editor', ACFG_URL . 'assets/front/css/medium-editor.min.css', array(), '1.0.1' );
-				wp_enqueue_style( 'acfg-css', ACFG_URL . 'assets/front/css/front-style.css', array(), '1.0.1' );
-				wp_enqueue_style( 'acfg-toaster', ACFG_URL . 'assets/front/css/jquery.toast.css', array(), '1.0.1' );
-				wp_enqueue_script( 'acfg-front-js', ACFG_URL . 'assets/front/js/front.js', array( 'jquery' ), '1.0.1', false );
-				wp_enqueue_script( 'acfg-toster-js', ACFG_URL . 'assets/front/js/jquery.toast.js', array( 'jquery' ), '1.0.1', false );
+				wp_enqueue_style( 'acfg-jquery-ui-dialog', ACFG_URL . 'assets/front/css/jquery-ui-dialog.min.css', array(), ACFG_VERSION );
+				wp_enqueue_style( 'acfg-editor', ACFG_URL . 'assets/front/css/medium-editor.min.css', array(), ACFG_VERSION );
+				wp_enqueue_style( 'acfg-css', ACFG_URL . 'assets/front/css/front-style.css', array(), ACFG_VERSION );
+				wp_enqueue_style( 'acfg-toaster', ACFG_URL . 'assets/front/css/jquery.toast.css', array(), ACFG_VERSION );
+				wp_enqueue_script( 'acfg-front-js', ACFG_URL . 'assets/front/js/front.js', array( 'jquery' ), ACFG_VERSION, false );
+				wp_enqueue_script( 'acfg-toster-js', ACFG_URL . 'assets/front/js/jquery.toast.js', array( 'jquery' ), ACFG_VERSION, false );
 				wp_enqueue_script( 'jquery-ui-core', '', array(), false, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion -- core-bundled script, version is managed by WordPress itself.
 				wp_enqueue_script( 'jquery-ui-dialog', '', array(), false, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion -- core-bundled script, version is managed by WordPress itself.
 				wp_enqueue_style( 'wp-jquery-ui-dialog' );

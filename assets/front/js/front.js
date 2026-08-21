@@ -38,8 +38,8 @@ jQuery(document).ready(function ($) {
                   var jsonObj = data;
 
                   if(jsonObj.status == 'success') {
-                      $('body').find('span[data-key = '+ jsonObj.field_key +' ]').html(jsonObj.field_content);
-                     
+                      $('body').find('span[data-key="' + jsonObj.field_key + '"]').text(jsonObj.field_content);
+
                       $(".acfg-dialogbox").dialog('close');
                       $.toast({ 
                         loader: false, 

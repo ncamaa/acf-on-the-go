@@ -5,9 +5,9 @@
 - Contributors: amaa, alkesh7
 - Tags: ACF, advanced custom fields, acf front
 - Requires at least: 4.8
-- Tested up to: 7.0.2
+- Tested up to: 7.1
 - Requires PHP: 5.6
-- Stable tag: 1.0.2
+- Stable tag: 1.0.3
 - License: GPL2+
 - License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -57,6 +57,16 @@ Right now the plugin works only for non-repeater text fields. We're working on a
 9. Review the new content on the 'Edit Page'.
 
 ## Changelog ##
+
+### 1.0.3 ###
+Release date: August 21st, 2026
+
+* Hardening: front-end save response is now inserted into the page with `.text()` instead of `.html()`, removing a redundant HTML-rendering step for values that are always plain text.
+* Fix: the plugin's own front-end CSS/JS were pinned to a stale, hardcoded version string, so browsers could keep serving a cached copy across plugin updates; they now version off the plugin's own version number.
+* Fix: renamed the `jquery-ui` style handle to `acfg-jquery-ui-dialog` to avoid colliding with identically-named handles from other plugins or themes.
+* Tested up to WordPress 7.1.
+* Code quality: renamed `includes/acfg-front-loader.php` to `includes/class-acfg-front-loader.php` and removed a redundant, unreachable admin-context check, to align with WordPress Coding Standards.
+* Added a `phpcs.xml.dist` ruleset (WordPress-Extra + WordPress-Docs) so coding-standards checks are repeatable for future changes.
 
 ### 1.0.2 ###
 Release date: August 5th, 2026

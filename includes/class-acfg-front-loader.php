@@ -48,7 +48,8 @@ if ( ! class_exists( 'ACFG_Front_Loader' ) ) {
 		 * @since 1.0.0
 		 */
 		public function acfg_selector( $value, $post_id, $field ) {
-			if ( 0 === strpos( $value, 'http' ) || '#' === $value || '' === $value || filter_var( $value, FILTER_VALIDATE_EMAIL ) || is_admin() ) {
+			// URLs, anchors, empty values and emails aren't meant to be inline-editable.
+			if ( 0 === strpos( $value, 'http' ) || '#' === $value || '' === $value || filter_var( $value, FILTER_VALIDATE_EMAIL ) ) {
 				return $value;
 			}
 
