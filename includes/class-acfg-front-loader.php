@@ -112,7 +112,7 @@ if ( ! class_exists( 'ACFG_Front_Loader' ) ) {
 				</span>',
 				esc_attr( $field_id ),
 				esc_attr( $field_type ),
-				esc_attr( $post_id ),
+				esc_attr( (string) $post_id ),
 				esc_attr( $field_name ),
 				esc_attr( $field_key ),
 				esc_html( $value ),

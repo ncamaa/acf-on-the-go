@@ -1,0 +1,17 @@
+.git
+.github
+.gitignore
+.gitattributes
+.editorconfig
+.distignore
+.claude
+.wordpress-org
+node_modules
+vendor
+tests
+composer.json
+composer.lock
+phpcs.xml.dist
+phpstan.neon
+phpstan-bootstrap.php
+phpunit.xml.dist
