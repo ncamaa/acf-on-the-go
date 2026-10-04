@@ -1,4 +1,30 @@
 jQuery(document).ready(function ($) {
+
+  /**
+   * Shows a red error toast.
+   *
+   * The toast library renders its text as HTML, so only pass it strings
+   * that come from the plugin's own (translated) messages.
+   *
+   * @param {string} message Message to display.
+   */
+  function acfgShowError(message) {
+    $.toast({
+      loader: false,
+      heading: acfg_object.error_txt,
+      icon: 'error',
+      text: message,
+      showHideTransition: 'plain',
+      bgColor: '#d63638',
+      textColor: '#fff',
+      allowToastClose: true,
+      hideAfter: 7000,
+      stack: 5,
+      textAlign: 'left',
+      position: 'mid-center'
+    });
+  }
+
   //style all the dialogue
 
   jQuery(function ($) {
@@ -10,7 +36,7 @@ jQuery(document).ready(function ($) {
       width: 'auto',
       buttons: [
         {
-          text: js_object.update_txt,
+          text: acfg_object.update_txt,
           class: 'acfg-update-btn',
           click: function () {
             var acf_data = $(this).parent().find('.acfg-dialogbox');
@@ -25,11 +51,11 @@ jQuery(document).ready(function ($) {
             });
             
             $.ajax({
-              url: js_object.ajaxurl,
+              url: acfg_object.ajaxurl,
               method: 'POST',
               data: {
-                  'action': 'scrap_it',
-                  'nonce': js_object.nonce,
+                  'action': 'acfg_update_fields',
+                  'nonce': acfg_object.nonce,
                   'textArr': textString
               },
               success: function(data) {
@@ -43,9 +69,9 @@ jQuery(document).ready(function ($) {
                       $(".acfg-dialogbox").dialog('close');
                       $.toast({ 
                         loader: false, 
-                        heading: js_object.success_txt,
+                        heading: acfg_object.success_txt,
                         icon: 'success',
-                        text : js_object.success_msg, 
+                        text : acfg_object.success_msg, 
                         showHideTransition : 'plain',  // It can be plain, fade or slide
                         bgColor : '#28a745',             // Background color for toast
                         textColor : '#eee',            // text color
@@ -62,9 +88,9 @@ jQuery(document).ready(function ($) {
                       $(".acfg-dialogbox").dialog('close');
                       $.toast({ 
                         loader: false,
-                        heading: js_object.nochange_txt,
+                        heading: acfg_object.nochange_txt,
                         icon: 'success',
-                        text : js_object.nochange_msg,
+                        text : acfg_object.nochange_msg,
                         showHideTransition : 'slide',  // It can be plain, fade or slide
                         bgColor : 'blue',              // Background color for toast
                         textColor : '#eee',            // text color
@@ -75,16 +101,23 @@ jQuery(document).ready(function ($) {
                         position : 'mid-center'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
                       })
                   }
+
+                  // wp_send_json_error() responses (bad nonce data, no permission, field not editable).
+                  if (jsonObj.success === false) {
+                      acfgShowError(jsonObj.data && jsonObj.data.message ? jsonObj.data.message : acfg_object.error_msg);
+                  }
               },
-              error: function(errorThrown) {
-                  console.error('errorThrown');
+              error: function(jqXHR) {
+                  // An expired nonce makes check_ajax_referer() answer with HTTP 403.
+                  console.error('ACF On The Go: save request failed', jqXHR.status);
+                  acfgShowError(acfg_object.error_msg);
               }
           });
 
           }
         },
         {
-          text: js_object.close_txt,
+          text: acfg_object.close_txt,
           class: 'acfg-close-btn',
           click: function () {
             $(this).dialog("close")

@@ -19,5 +19,5 @@ if ( ! defined( 'ACFG_BASENAME' ) ) {
 	define( 'ACFG_BASENAME', 'acf-on-the-go/acf-on-the-go.php' );
 }
 if ( ! defined( 'ACFG_VERSION' ) ) {
-	define( 'ACFG_VERSION', '1.0.3' );
+	define( 'ACFG_VERSION', '2.0' );
 }

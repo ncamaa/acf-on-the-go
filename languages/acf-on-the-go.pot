@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: ACF On The Go 1.0.3\n"
+"Project-Id-Version: ACF On The Go 2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/acf-on-the-go\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T11:38:00+00:00\n"
+"POT-Creation-Date: 2026-09-24T10:47:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: acf-on-the-go\n"
@@ -39,67 +39,77 @@ msgstr ""
 msgid "https://www.linkedin.com/in/nadav-cohen-wd/"
 msgstr ""
 
-#: acf-on-the-go.php:95
+#: acf-on-the-go.php:100
 msgid "Activate ACF Pro Now"
 msgstr ""
 
-#: acf-on-the-go.php:98
+#: acf-on-the-go.php:103
 msgid "Activate ACF Now"
 msgstr ""
 
-#: acf-on-the-go.php:101
+#: acf-on-the-go.php:106
 msgid "Activate Secure Custom Fields Now"
 msgstr ""
 
-#: acf-on-the-go.php:105
-#: acf-on-the-go.php:114
+#: acf-on-the-go.php:110
+#: acf-on-the-go.php:119
 msgid "ACF on the Go"
 msgstr ""
 
-#: acf-on-the-go.php:105
+#: acf-on-the-go.php:110
 msgid " Plugin not working because you need to activate the <strong>Advanced Custom Fields</strong> or <strong>Secure Custom Fields</strong> plugin."
 msgstr ""
 
-#: acf-on-the-go.php:114
+#: acf-on-the-go.php:119
 msgid " Plugin not working because you need to install the <strong>Advanced Custom Fields</strong> or <strong>Secure Custom Fields</strong> plugin"
 msgstr ""
 
-#: acf-on-the-go.php:115
+#: acf-on-the-go.php:120
 msgid "Install Secure Custom Fields Now"
 msgstr ""
 
-#: acf-on-the-go.php:162
+#: acf-on-the-go.php:175
 msgid "Success"
 msgstr ""
 
-#: acf-on-the-go.php:163
+#: acf-on-the-go.php:176
 msgid "No change"
 msgstr ""
 
-#: acf-on-the-go.php:164
+#: acf-on-the-go.php:177
 msgid "Updated Successfully"
 msgstr ""
 
-#: acf-on-the-go.php:165
+#: acf-on-the-go.php:178
 msgid "Nothing to change"
 msgstr ""
 
-#: acf-on-the-go.php:166
+#: acf-on-the-go.php:179
+msgid "Error"
+msgstr ""
+
+#: acf-on-the-go.php:180
+msgid "The field could not be updated. Please reload the page and try again."
+msgstr ""
+
+#: acf-on-the-go.php:181
 msgid "Update"
 msgstr ""
 
-#: acf-on-the-go.php:167
+#: acf-on-the-go.php:182
 msgid "Close"
 msgstr ""
 
-#: includes/class-acfg-front-loader.php:149
+#: includes/class-acfg-front-loader.php:252
 msgid "You must be logged in to do that."
 msgstr ""
 
-#: includes/class-acfg-front-loader.php:153
+#: includes/class-acfg-front-loader.php:256
 msgid "Invalid request."
 msgstr ""
 
-#: includes/class-acfg-front-loader.php:164
+#: includes/class-acfg-front-loader.php:268
+#: includes/class-acfg-front-loader.php:275
+#: includes/class-acfg-front-loader.php:279
 msgid "You are not allowed to edit this field."
 msgstr ""

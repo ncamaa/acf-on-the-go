@@ -46,3 +46,11 @@
     height: 12px;
     width: 12px;
 }
+
+/*
+ * Keep save notices above the open edit dialog (the WordPress dialog overlay uses z-index 100101+).
+ * The "body" prefix out-ranks the !important rule in jquery.toast.css, which loads later.
+ */
+body .jq-toast-wrap {
+    z-index: 100200 !important;
+}

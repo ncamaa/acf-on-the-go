@@ -3,7 +3,7 @@
  * Plugin Name: ACF On The Go
  * Plugin URI: https://github.com/ncamaa/acf-on-the-go/edit/master/README.md
  * Description: Edit ACF text fields from the front end of your website
- * Version: 1.0.3
+ * Version: 2.0
  * Author: Nadav Cohen (amaa)
  * Developer: Alkesh Miyani
  * Author URI: https://www.linkedin.com/in/nadav-cohen-wd/
@@ -24,13 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /*
- * Define variables.
+ * Plugin constants: main file path, directory path, public URL,
+ * basename, and version (used for asset cache-busting).
  */
 define( 'ACFG_FILE', __FILE__ );
 define( 'ACFG_DIR', plugin_dir_path( ACFG_FILE ) );
 define( 'ACFG_URL', plugins_url( '/', ACFG_FILE ) );
 define( 'ACFG_BASENAME', plugin_basename( __FILE__ ) );
-define( 'ACFG_VERSION', '1.0.3' );
+define( 'ACFG_VERSION', '2.0' );
 
 if ( ! class_exists( 'ACFG_Init' ) ) {
 
@@ -42,16 +43,19 @@ if ( ! class_exists( 'ACFG_Init' ) ) {
 		/**
 		 * 'acf-on-the-go' constructor.
 		 *
-		 * The main plugin actions registered for WordPress.
+		 * The main plugin actions registered for WordPress. The front-end
+		 * loader is included on `plugins_loaded` so that ACF / Secure Custom
+		 * Fields has already been loaded by the time we check for it,
+		 * regardless of plugin load order.
 		 */
 		public function __construct() {
 			add_action( 'init', array( $this, 'acfg_validate_depencency' ) );
+			add_action( 'plugins_loaded', array( $this, 'acfg_include_files' ) );
 			$this->hooks();
-			$this->acfg_include_files();
 		}
 
 		/**
-		 * Initialize.
+		 * Registers the admin and front-end asset hooks.
 		 */
 		public function hooks() {
 			add_action( 'admin_enqueue_scripts', array( $this, 'acfg_admin_scripts' ) );
@@ -59,7 +63,8 @@ if ( ! class_exists( 'ACFG_Init' ) ) {
 		}
 
 		/**
-		 * Check ACF is active or not.
+		 * Checks whether ACF (or Secure Custom Fields) is loaded and, if not,
+		 * queues an admin notice explaining how to fix it.
 		 */
 		public function acfg_validate_depencency() {
 			if ( ! class_exists( 'ACF' ) ) {
@@ -115,47 +120,55 @@ if ( ! class_exists( 'ACFG_Init' ) ) {
 				$message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', esc_url( $install_url ), __( 'Install Secure Custom Fields Now', 'acf-on-the-go' ) ) . '</p>';
 			}
 
-			echo '<div class="error is-dismissible"><p>' . wp_kses_post( $message ) . '</p></div>';
+			// $message already contains its own paragraphs, so it is not wrapped in another <p>.
+			echo '<div class="notice notice-error is-dismissible">' . wp_kses_post( $message ) . '</div>';
 		}
 
 		/**
 		 * Enqueue admin panel required css/js.
+		 *
+		 * Intentionally empty: the plugin has no admin UI. Kept so that any
+		 * third-party code referencing this callback keeps working.
 		 */
 		public function acfg_admin_scripts() {
 		}
 
 		/**
-		 * Load files.
+		 * Loads the front-end loader when ACF is available.
+		 *
+		 * ACF, ACF Pro and Secure Custom Fields all define the `ACF` class, so
+		 * checking for it also covers copies bundled in a theme or loaded as
+		 * a must-use plugin, which `is_plugin_active()` would miss.
 		 */
 		public function acfg_include_files() {
-			include_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-			$checkplugin     = is_plugin_active( 'advanced-custom-fields/acf.php' );
-			$checkplugin_pro = is_plugin_active( 'advanced-custom-fields-pro/acf.php' );
-			$checkplugin_scf = is_plugin_active( 'secure-custom-fields/secure-custom-fields.php' );
-
-			if ( true === $checkplugin || true === $checkplugin_pro || true === $checkplugin_scf ) {
+			if ( class_exists( 'ACF' ) ) {
 				include_once ACFG_DIR . 'includes/class-acfg-front-loader.php';
 			}
 		}
 
 		/**
 		 * Enqueue front-end required css/js.
+		 *
+		 * Assets (and the AJAX nonce) are only output for users who can
+		 * edit content, and only when ACF is available -- the same
+		 * conditions under which editable fields are rendered.
 		 */
 		public function acfg_front_scripts() {
-			if ( is_user_logged_in() ) {
+			if ( is_user_logged_in() && current_user_can( 'edit_posts' ) && class_exists( 'ACF' ) ) {
 				wp_enqueue_style( 'acfg-jquery-ui-dialog', ACFG_URL . 'assets/front/css/jquery-ui-dialog.min.css', array(), ACFG_VERSION );
 				wp_enqueue_style( 'acfg-editor', ACFG_URL . 'assets/front/css/medium-editor.min.css', array(), ACFG_VERSION );
 				wp_enqueue_style( 'acfg-css', ACFG_URL . 'assets/front/css/front-style.css', array(), ACFG_VERSION );
 				wp_enqueue_style( 'acfg-toaster', ACFG_URL . 'assets/front/css/jquery.toast.css', array(), ACFG_VERSION );
-				wp_enqueue_script( 'acfg-front-js', ACFG_URL . 'assets/front/js/front.js', array( 'jquery' ), ACFG_VERSION, false );
-				wp_enqueue_script( 'acfg-toster-js', ACFG_URL . 'assets/front/js/jquery.toast.js', array( 'jquery' ), ACFG_VERSION, false );
-				wp_enqueue_script( 'jquery-ui-core', '', array(), false, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion -- core-bundled script, version is managed by WordPress itself.
-				wp_enqueue_script( 'jquery-ui-dialog', '', array(), false, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion -- core-bundled script, version is managed by WordPress itself.
 				wp_enqueue_style( 'wp-jquery-ui-dialog' );
+
+				// Declare real dependencies so WordPress loads jQuery UI Dialog and the toast library before our script.
+				wp_enqueue_script( 'acfg-toster-js', ACFG_URL . 'assets/front/js/jquery.toast.js', array( 'jquery' ), ACFG_VERSION, true );
+				wp_enqueue_script( 'acfg-front-js', ACFG_URL . 'assets/front/js/front.js', array( 'jquery', 'jquery-ui-dialog', 'acfg-toster-js' ), ACFG_VERSION, true );
+
+				// Prefixed global name so it cannot clash with other plugins' localized data.
 				wp_localize_script(
 					'acfg-front-js',
-					'js_object',
+					'acfg_object',
 					array(
 						'ajaxurl'      => admin_url( 'admin-ajax.php' ),
 						'nonce'        => wp_create_nonce( 'acfg_update_fields' ),
@@ -163,6 +176,8 @@ if ( ! class_exists( 'ACFG_Init' ) ) {
 						'nochange_txt' => __( 'No change', 'acf-on-the-go' ),
 						'success_msg'  => __( 'Updated Successfully', 'acf-on-the-go' ),
 						'nochange_msg' => __( 'Nothing to change', 'acf-on-the-go' ),
+						'error_txt'    => __( 'Error', 'acf-on-the-go' ),
+						'error_msg'    => __( 'The field could not be updated. Please reload the page and try again.', 'acf-on-the-go' ),
 						'update_txt'   => __( 'Update', 'acf-on-the-go' ),
 						'close_txt'    => __( 'Close', 'acf-on-the-go' ),
 					)
@@ -174,6 +189,6 @@ if ( ! class_exists( 'ACFG_Init' ) ) {
 }
 
 /*
- * Starts our plugin class, easy!
+ * Boot the plugin.
  */
 new ACFG_Init();

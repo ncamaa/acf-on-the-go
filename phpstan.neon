@@ -14,10 +14,11 @@ parameters:
         - vendor/szepeviktor/phpstan-wordpress/bootstrap.php
         - phpstan-bootstrap.php
 
-    # get_field()/update_field() are provided at runtime by the ACF (or Secure
-    # Custom Fields) plugin, an optional soft dependency checked via
-    # class_exists( 'ACF' ) rather than a composer requirement, so no stubs
-    # are available for static analysis to resolve them against.
+    # get_field()/update_field()/acf_get_field() are provided at runtime by
+    # the ACF (or Secure Custom Fields) plugin, an optional soft dependency
+    # checked via class_exists( 'ACF' ) rather than a composer requirement,
+    # so no stubs are available for static analysis to resolve them against.
     ignoreErrors:
         - '#Function get_field not found\.#'
         - '#Function update_field not found\.#'
+        - '#Function acf_get_field not found\.#'

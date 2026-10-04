@@ -1,4 +1,4 @@
-# ACF On-The-Go #
+# ACF On The Go #
 - Author URI: https://www.linkedin.com/in/nadav-cohen-wd/
 - Donate link: https://www.paypal.me/NadavC
 - Plugin URI: https://github.com/ncamaa/acf-on-the-go/edit/master/README.md
@@ -7,7 +7,7 @@
 - Requires at least: 4.8
 - Tested up to: 7.1
 - Requires PHP: 5.6
-- Stable tag: 1.0.3
+- Stable tag: 2.0
 - License: GPL2+
 - License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -57,6 +57,16 @@ Right now the plugin works only for non-repeater text fields. We're working on a
 9. Review the new content on the 'Edit Page'.
 
 ## Changelog ##
+
+### 2.0 ###
+Release date: September 24th, 2026
+
+* Security: Hardened front-end field updates and edit permissions.
+* Security: Restricted scripts and save requests to authorized users.
+* Compatibility: WordPress 7.1.2 and PHP 8.1+ fixes.
+* Compatibility: Improved ACF/SCF detection and plugin compatibility.
+* Fixed: Save errors, textarea line breaks, script dependencies, and admin notices.
+* Updated: PHPCS fixes and improved documentation.
 
 ### 1.0.3 ###
 Release date: August 21st, 2026
